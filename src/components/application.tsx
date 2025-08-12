@@ -22,14 +22,12 @@ export const fetchQuotes = async (count: number) => {
 const Application = () => {
   //const [quote, setQuote] = useState<Quote | undefined>(); Initialize quote as undefined without a default value
   const [quotes, setQuotes] = useState<Quote[]>([]); // Initialize quotes as an empty array of type Quote array
-  const [count, setCount] = useState(10);
   return (
     <main className="mx-auto w-full max-w-2xl py-16">
       {
         //basically react cant render object so we have to map it to string,number or JSX Element. React knows which and what to render
         <Quotes
-          count={count}
-        onSubmit={()=>{fetchQuotes(count).then(setQuotes)}} //fetch quotes done then setQuotes
+        setQuotes={setQuotes}
         >
 
           <div>
